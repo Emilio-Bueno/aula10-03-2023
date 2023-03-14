@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" type="text/js"></script>
+    <link rel="stylesheet" href="css.css">
     <title>Calculadora</title>
-<style>
-    body {
-        background-color: cornflowerblue;
-    }
-</style>
-</head>
-<body>
-    <h1>Calculadora</h1> 
+
+  </head>
+  <body style="background-color: blueviolet">
+    
+    <h1>Calculadora</h1>
     <form>
-<input id="num1" type="text"></input>
-<input id="num2" type="text"></input>
-<button type= "button" onclick="somar()">somar</button>
-<input id="soma" type="text" disabled ></input>
+      <input type="text" id="v1" style="border: 2px solid black; border-radius: 5px;" />
+      <input type="text" id="v2" style="border: 2px solid black; border-radius: 5px;" />
+      <button type="button" onclick="Operacao('+')" style="border: 2px solid black; border-radius: 5px;">+</button>
+      <button type="button" onclick="Operacao('-')" style="border: 2px solid black; border-radius: 5px;">-</button>
+      <button type="button" onclick="Operacao('*')" style="border: 2px solid black; border-radius: 5px;">*</button>
+      <button type="button" onclick="Operacao('/')" style="border: 2px solid black; border-radius: 5px;">/</button><br/>
+      <input type="text" disabled id="resultado" style="border: 2px solid black; border-radius: 5px;"/>
     </form>
+
     <script>
-        function somar(){
-            var num1, num2, soma;
-            num1 = parseFloat(document.getElementById("num1").value);
-            num2 = parseFloat(document.getElementById("num2").value);
-            soma = num1 + num2;
-            document.getElementById("soma").value = soma;
+      function Operacao(op) {
+        var valor1 = parseFloat(document.getElementById("v1").value);
+        var valor2 = parseFloat(document.getElementById("v2").value);
+        var resultado = document.getElementById("resultado");
+        var resultado_conta;
+
+        switch (op) {
+          case "+":
+            resultado_conta = valor1 + valor2;
+            break;
+
+          case "-":
+            resultado_conta = valor1 - valor2;
+            break;
+
+          case "*":
+            resultado_conta = valor1 * valor2;
+            break;
+
+          case "/":
+            resultado_conta = valor1 / valor2;
+            break;
         }
+        resultado.value = resultado_conta;
+      }
     </script>
-</body>
+  </body>
 </html>
